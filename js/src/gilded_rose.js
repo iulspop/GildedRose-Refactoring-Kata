@@ -13,9 +13,12 @@ class Shop {
   updateQuality() {
     for (let i = 0; i < this.items.length; i++) {
       let item = this.items[i]
-      if (item.name != 'Aged Brie' && item.name != 'Backstage passes to a TAFKAL80ETC concert') {
+      let notSulfuras = item.name != 'Sulfuras, Hand of Ragnaros'
+      let notAgedBrie = item.name != 'Aged Brie'
+
+      if (notAgedBrie && item.name != 'Backstage passes to a TAFKAL80ETC concert') {
         if (item.quality > 0) {
-          if (item.name != 'Sulfuras, Hand of Ragnaros') {
+          if (notSulfuras) {
             item.quality = item.quality - 1;
           }
         }
@@ -36,14 +39,14 @@ class Shop {
           }
         }
       }
-      if (item.name != 'Sulfuras, Hand of Ragnaros') {
+      if (notSulfuras) {
         item.sellIn = item.sellIn - 1;
       }
       if (item.sellIn < 0) {
-        if (item.name != 'Aged Brie') {
+        if (notAgedBrie) {
           if (item.name != 'Backstage passes to a TAFKAL80ETC concert') {
             if (item.quality > 0) {
-              if (item.name != 'Sulfuras, Hand of Ragnaros') {
+              if (notSulfuras) {
                 item.quality = item.quality - 1;
               }
             }
