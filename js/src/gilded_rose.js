@@ -15,8 +15,9 @@ class Shop {
       let item = this.items[i]
       let notSulfuras = item.name != 'Sulfuras, Hand of Ragnaros'
       let notAgedBrie = item.name != 'Aged Brie'
+      let notBackstagePass = item.name != 'Backstage passes to a TAFKAL80ETC concert'
 
-      if (notAgedBrie && item.name != 'Backstage passes to a TAFKAL80ETC concert') {
+      if (notAgedBrie && notBackstagePass) {
         if (item.quality > 0) {
           if (notSulfuras) {
             item.quality = item.quality - 1;
@@ -25,7 +26,7 @@ class Shop {
       } else {
         if (item.quality < 50) {
           item.quality = item.quality + 1;
-          if (item.name == 'Backstage passes to a TAFKAL80ETC concert') {
+          if (!notBackstagePass) {
             if (item.sellIn < 11) {
               if (item.quality < 50) {
                 item.quality = item.quality + 1;
@@ -44,7 +45,7 @@ class Shop {
       }
       if (item.sellIn < 0) {
         if (notAgedBrie) {
-          if (item.name != 'Backstage passes to a TAFKAL80ETC concert') {
+          if (notBackstagePass) {
             if (item.quality > 0) {
               if (notSulfuras) {
                 item.quality = item.quality - 1;
