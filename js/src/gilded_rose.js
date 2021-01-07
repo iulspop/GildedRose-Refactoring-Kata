@@ -41,10 +41,10 @@ class Shop {
             item.quality = item.quality + 1;
           }
         } else {
-          if (item.name != 'Backstage passes to a TAFKAL80ETC concert') {
-            this.decrementItemQuality(item)
-          } else {
+          if (item.name == 'Backstage passes to a TAFKAL80ETC concert') {
             item.quality = item.quality - item.quality;
+          } else {
+            this.decrementItemQuality(item)
           }
         }
       }
