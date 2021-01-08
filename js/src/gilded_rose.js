@@ -13,7 +13,9 @@ class Shop {
   updateQuality() {
     for (let i = 0; i < this.items.length; i++) {
       let item = this.items[i];
-      if (item.name == 'Aged Brie' || item.name == 'Backstage passes to a TAFKAL80ETC concert') {
+      if (item.name == 'Aged Brie') {
+        this.incrementItemQualityIfLessThanFifty(item);
+      } else if (item.name == 'Backstage passes to a TAFKAL80ETC concert') {
         this.incrementItemQualityIfLessThanFifty(item);
         if (item.name == 'Backstage passes to a TAFKAL80ETC concert') {
           if (item.sellIn < 11) {
