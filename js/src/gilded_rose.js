@@ -10,10 +10,9 @@ function increaseQuality(item, increment = 1) {
   item.quality = Math.min(item.quality + increment, 50)
 }
 
-const agedBrie = 'Aged Brie'
-const backstagePass = 'Backstage passes to a TAFKAL80ETC concert'
-const sulfuras = 'Sulfuras, Hand of Ragnaros'
-
+const AGEDBRIE = 'Aged Brie'
+const BACKSTAGEPASS = 'Backstage passes to a TAFKAL80ETC concert'
+const SULFURAS = 'Sulfuras, Hand of Ragnaros'
 
 class Shop {
   constructor(items=[]) {
@@ -23,9 +22,9 @@ class Shop {
   updateQuality() {
     for (let i = 0; i < this.items.length; i++) {
       let item = this.items[i];
-      if (item.name == agedBrie || item.name == backstagePass) {
+      if (item.name == AGEDBRIE || item.name == BACKSTAGEPASS) {
         increaseQuality(item)
-        if (item.name == backstagePass) {
+        if (item.name == BACKSTAGEPASS) {
           if (item.sellIn < 6) {
             increaseQuality(item, 2)
           } else if (item.sellIn < 11) {
@@ -33,20 +32,20 @@ class Shop {
           }
         }
       } else {
-        if (item.name != sulfuras) {
+        if (item.name != SULFURAS) {
           if (item.quality > 0) {
             item.quality = item.quality - 1;
           }
         }
       }
-      if (item.name != sulfuras) {
+      if (item.name != SULFURAS) {
         item.sellIn = item.sellIn - 1;
       }
       if (item.sellIn < 0) {
-        if (item.name != agedBrie) {
-          if (item.name != backstagePass) {
+        if (item.name != AGEDBRIE) {
+          if (item.name != BACKSTAGEPASS) {
             if (item.quality > 0) {
-              if (item.name != sulfuras) {
+              if (item.name != SULFURAS) {
                 item.quality = item.quality - 1;
               }
             }
