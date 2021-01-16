@@ -42,7 +42,9 @@ class Shop {
         item.sellIn = item.sellIn - 1;
       }
       if (item.sellIn < 0) {
-        if (item.name != AGEDBRIE) {
+        if (item.name == AGEDBRIE) {
+          increaseQuality(item)
+        } else {
           if (item.name == BACKSTAGEPASS) {
             item.quality = 0;
           } else {
@@ -52,8 +54,6 @@ class Shop {
               }
             }
           }
-        } else {
-          increaseQuality(item)
         }
       }
     }
