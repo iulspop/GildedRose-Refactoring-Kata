@@ -43,14 +43,14 @@ class Shop {
       }
       if (item.sellIn < 0) {
         if (item.name != AGEDBRIE) {
-          if (item.name != BACKSTAGEPASS) {
+          if (item.name == BACKSTAGEPASS) {
+            item.quality = 0;
+          } else {
             if (item.quality > 0) {
               if (item.name != SULFURAS) {
                 item.quality = item.quality - 1;
               }
             }
-          } else {
-            item.quality = 0;
           }
         } else {
           increaseQuality(item)
