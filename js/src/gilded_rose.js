@@ -21,15 +21,13 @@ class Shop {
     for (let i = 0; i < this.items.length; i++) {
       let item = this.items[i];
       if (item.name == 'Aged Brie' || item.name == 'Backstage passes to a TAFKAL80ETC concert') {
-        if (item.quality < 50) {
-          item.quality = item.quality + 1;
-          if (item.name == 'Backstage passes to a TAFKAL80ETC concert') {
-            if (item.sellIn < 11) {
-              increaseQuality(item)
-            }
-            if (item.sellIn < 6) {
-              increaseQuality(item)
-            }
+        increaseQuality(item)
+        if (item.name == 'Backstage passes to a TAFKAL80ETC concert') {
+          if (item.sellIn < 11) {
+            increaseQuality(item)
+          }
+          if (item.sellIn < 6) {
+            increaseQuality(item)
           }
         }
       } else {
