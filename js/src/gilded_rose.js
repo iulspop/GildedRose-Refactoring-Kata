@@ -50,7 +50,7 @@ class Shop {
               }
             }
           } else {
-            item.quality = item.quality - item.quality;
+            item.quality = 0;
           }
         } else {
           increaseQuality(item)
