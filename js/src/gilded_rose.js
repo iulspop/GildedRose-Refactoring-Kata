@@ -6,10 +6,8 @@ class Item {
   }
 }
 
-function increaseQuality(item) {
-  if (item.quality < 50) {
-    item.quality += 1;
-  }
+function increaseQuality(item, increment = 1) {
+  item.quality = Math.min(item.quality + increment, 50)
 }
 
 class Shop {
@@ -24,8 +22,7 @@ class Shop {
         increaseQuality(item)
         if (item.name == 'Backstage passes to a TAFKAL80ETC concert') {
           if (item.sellIn < 6) {
-            increaseQuality(item)
-            increaseQuality(item)
+            increaseQuality(item, 2)
           } else if (item.sellIn < 11) {
             increaseQuality(item)
           }
