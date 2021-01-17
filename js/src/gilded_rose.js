@@ -42,18 +42,19 @@ class Shop {
         item.sellIn = item.sellIn - 1;
       }
       if (item.sellIn < 0) {
-        if (item.name == AGEDBRIE) {
-          increaseQuality(item)
-        } else {
-          if (item.name == BACKSTAGEPASS) {
+        switch (item.name) {
+          case AGEDBRIE:
+            increaseQuality(item)
+            break;
+          case BACKSTAGEPASS:
             item.quality = 0;
-          } else {
+            break;
+          default:
             if (item.quality > 0) {
               if (item.name != SULFURAS) {
                 item.quality = item.quality - 1;
               }
             }
-          }
         }
       }
     }
