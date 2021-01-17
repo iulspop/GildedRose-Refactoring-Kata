@@ -65,7 +65,7 @@ class Shop {
     item.sellIn--;
     this.changeQualityAfterUpdate(item)
   }
-  
+
   updateQuality() {
     this.items.forEach(item => this.changeQualityAndSellIn(item))
     return this.items;
