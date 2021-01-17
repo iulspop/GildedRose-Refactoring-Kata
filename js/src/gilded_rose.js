@@ -46,6 +46,22 @@ class Shop {
     }
   }
 
+  changeQualityAfterUpdate(item) {
+    if (item.sellIn < 0) {
+      switch (item.name) {
+        case AGEDBRIE:
+          increaseQuality(item)
+          break;
+        case BACKSTAGEPASS:
+          item.quality = 0;
+          break;
+        default:
+          if (item.name != SULFURAS) {
+            decreaseQuality(item)
+          }
+      }
+    }
+  }
 
   updateQuality() {
     for (let i = 0; i < this.items.length; i++) {
@@ -54,20 +70,7 @@ class Shop {
       if (item.name != SULFURAS) {
         item.sellIn = item.sellIn - 1;
       }
-      if (item.sellIn < 0) {
-        switch (item.name) {
-          case AGEDBRIE:
-            increaseQuality(item)
-            break;
-          case BACKSTAGEPASS:
-            item.quality = 0;
-            break;
-          default:
-            if (item.name != SULFURAS) {
-              decreaseQuality(item)
-            }
-        }
-      }
+      this.changeQualityAfterUpdate(item)
     }
 
     return this.items;
