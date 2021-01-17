@@ -40,9 +40,7 @@ class Shop {
         }
         break;
       default:
-        if (item.name != SULFURAS) {
-          decreaseQuality(item)
-        }
+        decreaseQuality(item)
     }
   }
 
@@ -56,9 +54,7 @@ class Shop {
           item.quality = 0;
           break;
         default:
-          if (item.name != SULFURAS) {
-            decreaseQuality(item)
-          }
+          decreaseQuality(item)
       }
     }
   }
