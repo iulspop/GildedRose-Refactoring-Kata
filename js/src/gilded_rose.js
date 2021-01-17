@@ -66,10 +66,9 @@ class Shop {
   updateQuality() {
     for (let i = 0; i < this.items.length; i++) {
       let item = this.items[i];
+      if (item.name == SULFURAS) { continue; }
       this.changeQualityBeforeUpdate(item)
-      if (item.name != SULFURAS) {
-        item.sellIn = item.sellIn - 1;
-      }
+      item.sellIn = item.sellIn - 1;
       this.changeQualityAfterUpdate(item)
     }
 
