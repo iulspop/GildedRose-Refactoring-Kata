@@ -22,21 +22,24 @@ class Shop {
   updateQuality() {
     for (let i = 0; i < this.items.length; i++) {
       let item = this.items[i];
-      if (item.name == AGEDBRIE || item.name == BACKSTAGEPASS) {
-        increaseQuality(item)
-        if (item.name == BACKSTAGEPASS) {
+      switch (item.name) {
+        case AGEDBRIE:
+          increaseQuality(item)
+          break;
+        case BACKSTAGEPASS:
+          increaseQuality(item)
           if (item.sellIn < 6) {
             increaseQuality(item, 2)
           } else if (item.sellIn < 11) {
             increaseQuality(item)
           }
-        }
-      } else {
-        if (item.name != SULFURAS) {
-          if (item.quality > 0) {
-            item.quality = item.quality - 1;
+          break;
+        default:
+          if (item.name != SULFURAS) {
+            if (item.quality > 0) {
+              item.quality = item.quality - 1;
+            }
           }
-        }
       }
       if (item.name != SULFURAS) {
         item.sellIn = item.sellIn - 1;
