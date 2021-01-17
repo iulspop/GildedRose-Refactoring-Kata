@@ -10,6 +10,12 @@ function increaseQuality(item, increment = 1) {
   item.quality = Math.min(item.quality + increment, 50)
 }
 
+function decreaseQuality(item){
+  if (item.quality > 0) {
+    item.quality = item.quality - 1;
+  }
+}
+
 const AGEDBRIE = 'Aged Brie'
 const BACKSTAGEPASS = 'Backstage passes to a TAFKAL80ETC concert'
 const SULFURAS = 'Sulfuras, Hand of Ragnaros'
@@ -36,9 +42,7 @@ class Shop {
           break;
         default:
           if (item.name != SULFURAS) {
-            if (item.quality > 0) {
-              item.quality = item.quality - 1;
-            }
+            decreaseQuality(item)
           }
       }
       if (item.name != SULFURAS) {
@@ -54,9 +58,7 @@ class Shop {
             break;
           default:
             if (item.name != SULFURAS) {
-              if (item.quality > 0) {
-                item.quality = item.quality - 1;
-              }
+              decreaseQuality(item)
             }
         }
       }
