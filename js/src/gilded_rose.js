@@ -59,15 +59,15 @@ class Shop {
     }
   }
 
+  changeQualityAndSellIn(item) {
+    if (item.name == SULFURAS) { return; }
+    this.changeQualityBeforeUpdate(item)
+    item.sellIn--;
+    this.changeQualityAfterUpdate(item)
+  }
+  
   updateQuality() {
-    for (let i = 0; i < this.items.length; i++) {
-      let item = this.items[i];
-      if (item.name == SULFURAS) { continue; }
-      this.changeQualityBeforeUpdate(item)
-      item.sellIn--;
-      this.changeQualityAfterUpdate(item)
-    }
-
+    this.items.forEach(item => this.changeQualityAndSellIn(item))
     return this.items;
   }
 }
